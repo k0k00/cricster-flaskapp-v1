@@ -14,6 +14,11 @@ Deep Learning
 Flask (Front-end integration).
 Well, for the smooth running of the project we’ve used few libraries like NumPy, Pandas, Scikit-learn, TensorFlow, and Matplotlib.
 
+Live Website 
+
+https://cricster-score-prediction.herokuapp.com/
+
+
 Read GFG article here
 
 https://www.geeksforgeeks.org/ipl-score-prediction-using-deep-learning/
