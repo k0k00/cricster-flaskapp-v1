@@ -21,7 +21,15 @@
       }
     </style>
 
-    <title>Cricster: Predict Scores</title>
+    <title>
+      Cricster: Predict Scores
+    </title>
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="{{ url_for('static', filename='favicon-img.png')
+  }}"
+    />
 
     <link
       rel="stylesheet"
@@ -46,6 +54,9 @@
       href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
       rel="stylesheet"
     />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+
+
   </head>
   <body class="text-center">
     <!-- Header -->
@@ -758,7 +769,6 @@
         <button class="predict-button" type="submit">
           Predict
         </button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2021 Cricster.</p>
       </form>
     </main>
 
@@ -906,7 +916,15 @@
 
     <!-- Footer -->
     <div class="footer">
-      <p class="footer-description">Made with ❤️ by Team Cricster.</p>
+      <p class="footer-description">
+        <p class="madeby"> Made with ❤️ by: </p> <br> 
+       <p class="team-name"> 
+        <a href="https://github.com/hrush25" class="team-hrushabh">Hrushabh Kale <i class="fab fa-github"></i></a> |
+        <a href=""> Shravani Rajguru <i class="fab fa-github"></i> </a> | 
+        <a href="https://github.com/pruthviishere"> Pruthviraj Jadhav <i class="fab fa-github"></i> </a>
+      <p class="text-muted copyright-text">&copy; 2021 Team   Cricster.</p>
+
+      </a>
     </div>
 
     <script
