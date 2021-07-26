@@ -4,11 +4,11 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
+import math
 
 #loading the model 
 model = tf.keras.models.load_model('ipl_score_prediction.h5')
 app = Flask(__name__, template_folder="templates")
-
 
 # Render homepage
 @app.route('/', methods=['GET'])
@@ -26,7 +26,7 @@ def result():
       bowlers = request.form.getlist('bowlers')
       
       array1 = [venue, 1, batting_team, bowling_team, striker]
-      input_array = array1 + bowlers
+      input_array = array1 + [bowlers[0]]
       # print('type(input_array)',type(input_array))
       a_file = open("features.pkl", "rb")
       # pickle.dump()
@@ -57,12 +57,24 @@ def result():
       # print()
       input_array= input_array[:6]
      
-      input_array= scaler.fit_transform([input_array])
-      predicted_score = model.predict(input_array)
-      predicted_score = np.round(predicted_score[0])
+      arr = [[1]*6]*1
+      arr[0][0] = input_array[0]
+      arr[0][1] = input_array[1]
+      arr[0][2] = input_array[2]
+      arr[0][3] = input_array[3]
+      arr[0][4] = input_array[4]
+
+      arr = np.array(arr)
+      print("input_array jj ??",arr)
+      predicted_score = model.predict(arr)
+
+      #input_array= scaler.fit_transform([input_array])
+      #predicted_score = model.predict(input_array)
+      predicted_score = np.round_(predicted_score[0], decimals=0)
     
-      # Projected scores  
-      crr = np.round(predicted_score/6)
+      # Projected scores
+    #   predicted_score = math.ceil(predicted_score )  
+      crr = (predicted_score/6)
       ps_crr = (predicted_score + 14* crr) # @current run rate
 
       ps_10rpo = (predicted_score + 140) # @10rpo
